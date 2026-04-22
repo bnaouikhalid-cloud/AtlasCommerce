@@ -1,13 +1,551 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Baita Valtellina — Casa vacanze nel cuore delle Alpi. Scopri il comfort di una baita tradizionale ristrutturata a Grosio, vicino a Bormio, Livigno e al Trenino Rosso del Bernina. Prenota ora!">
+  <meta name="keywords" content="casa vacanze Valtellina, baita alpina, Bormio, Livigno, Grosio, Trenino Rosso Bernina, sci Valtellina, vacanze montagna, appartamento montagna">
+  <meta name="author" content="Baita Valtellina">
+  <meta name="robots" content="index, follow">
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Baita Valtellina — Il tuo rifugio tra le Alpi">
+  <meta property="og:description" content="Casa vacanze nel cuore delle Alpi. Baita tradizionale ristrutturata a Grosio, vicino a Bormio, Livigno e al Trenino Rosso del Bernina.">
+  <meta property="og:image" content="images/hero.jpg">
+  <meta property="og:url" content="https://baitavaltellina.it">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Baita Valtellina — Il tuo rifugio tra le Alpi">
+  <meta name="twitter:description" content="Casa vacanze nel cuore delle Alpi italiane. Prenota ora la tua esperienza alpina.">
+  <meta name="twitter:image" content="images/hero.jpg">
+
+  <title>Baita Valtellina — Il tuo Rifugio tra le Alpi | Casa Vacanze Valtellina</title>
+  <link rel="canonical" href="https://baitavaltellina.it/">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Baita Valtellina",
+    "description": "Casa vacanze nel cuore delle Alpi. Baita tradizionale ristrutturata a Grosio, vicino a Bormio, Livigno e al Trenino Rosso del Bernina.",
+    "url": "https://baitavaltellina.it",
+    "telephone": "+39 349 1234567",
+    "email": "info@baitavaltellina.it",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Grosio",
+      "addressRegion": "Lombardia",
+      "postalCode": "23033",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 46.2923,
+      "longitude": 10.2647
+    },
+    "starRating": {
+      "@type": "Rating",
+      "ratingValue": "4.9",
+      "bestRating": "5"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "150"
+    },
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "WiFi veloce", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Pet friendly", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Cucina attrezzata", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Giardino privato", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Area wellness", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Parcheggio gratuito", "value": true}
+    ],
+    "image": "images/hero.jpg",
+    "priceRange": "€€",
+    "checkinTime": "15:00",
+    "checkoutTime": "10:00",
+    "numberOfRooms": 3,
+    "petsAllowed": true
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════ -->
+  <nav class="nav" id="navbar" role="navigation" aria-label="Navigazione principale">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" aria-label="Baita Valtellina — Home">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2L2 12h3v14h18V12h3L14 2z" fill="currentColor" opacity="0.9"/>
+          <path d="M10 26V18h8v8" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+        Baita Valtellina
+      </a>
+
+      <div class="nav__links" id="navLinks">
+        <a href="#about" class="nav__link">La Baita</a>
+        <a href="#rooms" class="nav__link">Spazi</a>
+        <a href="#experiences" class="nav__link">Esperienze</a>
+        <a href="#gallery" class="nav__link">Galleria</a>
+        <a href="#reviews" class="nav__link">Recensioni</a>
+        <a href="https://bookonline.pro/it/property/398832" class="nav__cta" target="_blank" rel="noopener" id="nav-cta">
+          Prenota Ora
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+       ═══════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <img src="images/hero.jpg" alt="Baita alpina tra le montagne innevate della Valtellina al tramonto" id="heroImg">
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title">Il tuo rifugio<br>tra le Alpi.</h1>
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <svg class="hero__stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="3"/></svg>
+          Altitudine 1200m
+        </div>
+        <div class="hero__stat-dot"></div>
+        <div class="hero__stat">
+          <svg class="hero__stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7"/><path d="M3 7l3-4h12l3 4"/></svg>
+          Posti Letto: 6
+        </div>
+        <div class="hero__stat-dot"></div>
+        <div class="hero__stat">
+          <svg class="hero__stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2C8 6 3 9 3 14a9 9 0 0018 0c0-5-5-8-9-12z"/></svg>
+          Distanza Sci: 200m
+        </div>
+        <div class="hero__stat-dot"></div>
+        <div class="hero__stat">
+          <svg class="hero__stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+          Rating: 4.9/5
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       BOOKING WIDGET
+       ═══════════════════════════════════════════ -->
+  <div class="booking container" id="booking">
+    <form class="booking__card" id="bookingForm" action="https://bookonline.pro/it/property/398832" method="get" target="_blank">
+      <div class="booking__field">
+        <label class="booking__label" for="checkin">Arrivo</label>
+        <input type="date" class="booking__input" id="checkin" name="checkin" required>
+      </div>
+      <div class="booking__field">
+        <label class="booking__label" for="checkout">Partenza</label>
+        <input type="date" class="booking__input" id="checkout" name="checkout" required>
+      </div>
+      <div class="booking__field">
+        <label class="booking__label" for="guests">Ospiti</label>
+        <select class="booking__input" id="guests" name="guests">
+          <option value="1">1 adulto</option>
+          <option value="2" selected>2 adulti</option>
+          <option value="3">3 adulti</option>
+          <option value="4">4 adulti</option>
+          <option value="5">5 adulti</option>
+          <option value="6">6 adulti</option>
+        </select>
+      </div>
+      <button type="submit" class="booking__btn" id="bookingBtn">
+        Verifica Disponibilità
+      </button>
+    </form>
+  </div>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════
+         ABOUT SECTION (LA BAITA)
+         ═══════════════════════════════════════════ -->
+    <section class="about section-padding" id="about">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__image reveal">
+            <img src="images/interior.png" alt="Interno accogliente della Baita Valtellina con camino e arredi in legno" loading="lazy">
+          </div>
+          <div class="about__text reveal reveal-delay-2">
+            <span class="section-label">La Baita</span>
+            <h2 class="section-title">Autentica, calda,<br>completamente tua.</h2>
+            <p>Scopri il lusso della tradizione alpina. La nostra baita recentemente ristrutturata offre comfort moderni e il calore di un autentico rifugio di montagna, perfetto per famiglie e gruppi. Goditi viste panoramiche e momenti indimenticabili.</p>
+            <p>Collocata in una posizione strategica a Grosio, a metà vallata, è il punto di partenza ideale sia per le magnifiche piste da sci di Bormio e Livigno sia per una giornata sulle due ruote sul Mortirolo, sullo Stelvio o sul Bernina.</p>
+            <div class="about__amenities">
+              <span class="amenity-badge"><span class="amenity-badge__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg></span> WiFi veloce</span>
+              <span class="amenity-badge"><span class="amenity-badge__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.656 1 1.261-.472 1.96-1.45 2.344-2.5"/><path d="M14.267 5.172c0-1.39 1.577-2.493 3.5-2.172 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.855-1.45-2.239-2.5"/><path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75z"/><path d="M4.42 11.247A13.152 13.152 0 004 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a13.152 13.152 0 00-.42-3.31"/></svg></span> Pet friendly</span>
+              <span class="amenity-badge"><span class="amenity-badge__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></span> Cucina attrezzata</span>
+              <span class="amenity-badge"><span class="amenity-badge__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M12 2v2"/></svg></span> Giardino privato</span>
+              <span class="amenity-badge"><span class="amenity-badge__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"/></svg></span> Area wellness</span>
+              <span class="amenity-badge"><span class="amenity-badge__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="22" height="18" rx="2"/><path d="M5 10h2v4H5z" fill="currentColor" stroke="none"/><path d="M10 7h4v10h-4z" fill="none"/><path d="M10 7h4v10h-4"/></svg></span> Parcheggio gratuito</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         ROOMS / SPAZI
+         ═══════════════════════════════════════════ -->
+    <section class="rooms section-padding" id="rooms">
+      <div class="container">
+        <div class="rooms__header reveal">
+          <span class="section-label">Gli Spazi</span>
+          <h2 class="section-title">Ogni angolo racconta<br>una storia alpina.</h2>
+        </div>
+        <div class="rooms__grid">
+          <article class="room-card reveal reveal-delay-1" id="room-cervo">
+            <div class="room-card__image">
+              <img src="images/room-suite.png" alt="Suite del Cervo — camera matrimoniale con vista sulle Alpi" loading="lazy">
+              <span class="room-card__badge">Più amata</span>
+            </div>
+            <div class="room-card__body">
+              <h3 class="room-card__name">Suite del Cervo</h3>
+              <p class="room-card__desc">Camera matrimoniale con vista panoramica sulle montagne, soffitti in legno e bagno privato con doccia cromoterapica.</p>
+              <div class="room-card__features">
+                <span class="room-card__feature">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="12" width="20" height="8" rx="2"/><path d="M2 16h20"/></svg>
+                  Matrimoniale
+                </span>
+                <span class="room-card__feature">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  28 m²
+                </span>
+                <span class="room-card__feature">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                  Vista Alpi
+                </span>
+              </div>
+              <a href="#booking" class="room-card__link">
+                Scopri di più
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="room-card reveal reveal-delay-2" id="room-alpina">
+            <div class="room-card__image">
+              <img src="images/room-alpine.png" alt="Camera Alba Alpina — camera con letti singoli e arredi tradizionali" loading="lazy">
+            </div>
+            <div class="room-card__body">
+              <h3 class="room-card__name">Alba Alpina</h3>
+              <p class="room-card__desc">Camera con due letti singoli, perfetta per amici o bambini. Arredi in legno naturale e vista sul Parco delle Incisioni Rupestri.</p>
+              <div class="room-card__features">
+                <span class="room-card__feature">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="12" width="20" height="8" rx="2"/><path d="M2 16h20"/></svg>
+                  2 Singoli
+                </span>
+                <span class="room-card__feature">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  22 m²
+                </span>
+                <span class="room-card__feature">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                  Vista Parco
+                </span>
+              </div>
+              <a href="#booking" class="room-card__link">
+                Scopri di più
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="room-card reveal reveal-delay-3" id="room-stellato">
+            <div class="room-card__image">
+              <img src="images/interior.png" alt="Soggiorno Rifugio Stellato — zona living con camino e divano letto" loading="lazy">
+            </div>
+            <div class="room-card__body">
+              <h3 class="room-card__name">Rifugio Stellato</h3>
+              <p class="room-card__desc">Area living spaziosa con camino a legna, divano letto per 2 ospiti aggiuntivi e cucina completamente attrezzata.</p>
+              <div class="room-card__features">
+                <span class="room-card__feature">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="12" width="20" height="8" rx="2"/><path d="M2 16h20"/></svg>
+                  Divano Letto
+                </span>
+                <span class="room-card__feature">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  45 m²
+                </span>
+                <span class="room-card__feature">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
+                  Camino
+                </span>
+              </div>
+              <a href="#booking" class="room-card__link">
+                Scopri di più
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         EXPERIENCES
+         ═══════════════════════════════════════════ -->
+    <section class="experiences section-padding" id="experiences">
+      <div class="container">
+        <div class="experiences__header reveal">
+          <span class="section-label">Esperienze</span>
+          <h2 class="section-title">Vivi la Valtellina<br>come mai prima.</h2>
+          <p class="section-subtitle">Dalla pista da sci alle terme, dal Trenino Rosso del Bernina ai passi leggendari in bici. Tutto a portata di mano.</p>
+        </div>
+        <div class="experiences__grid">
+          <div class="exp-card reveal reveal-delay-1" id="exp-ski">
+            <div class="exp-card__icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="3" r="2"/><path d="M2 21l5-5 3 3 7-7"/><path d="M14 14l2-2 4 4"/><path d="M17 6l-4 4-3-3-4 4"/></svg></div>
+            <h3 class="exp-card__title">Sci & Snowboard</h3>
+            <p class="exp-card__desc">Bormio, Livigno e Aprica: tre comprensori a meno di 1h. Piste da Coppa del Mondo e tracciati per famiglie. Sede Olimpiadi 2026.</p>
+          </div>
+          <div class="exp-card reveal reveal-delay-2" id="exp-trekking">
+            <div class="exp-card__icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l4-14 4 6 4-6 4 14"/><path d="M4 19h16"/><path d="M12 11l-2 8"/><path d="M12 11l2 8"/></svg></div>
+            <h3 class="exp-card__title">Trekking & Natura</h3>
+            <p class="exp-card__desc">Esplora la Val Grosina, un paradiso naturalistico nascosto. Sentieri immersi nel verde, laghi alpini e fauna selvatica.</p>
+          </div>
+          <div class="exp-card reveal reveal-delay-3" id="exp-trenino">
+            <div class="exp-card__icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="14" rx="3"/><path d="M4 11h16"/><path d="M12 3v8"/><circle cx="8" cy="20" r="1"/><circle cx="16" cy="20" r="1"/><path d="M8 17v2"/><path d="M16 17v2"/></svg></div>
+            <h3 class="exp-card__title">Trenino Rosso</h3>
+            <p class="exp-card__desc">Patrimonio UNESCO. Il Trenino Rosso del Bernina parte da Tirano, a soli 15 minuti. Un viaggio mozzafiato tra ghiacciai e valli.</p>
+          </div>
+          <div class="exp-card reveal reveal-delay-1" id="exp-bike">
+            <div class="exp-card__icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h3"/></svg></div>
+            <h3 class="exp-card__title">Ciclismo</h3>
+            <p class="exp-card__desc">Mortirolo, Stelvio, Gavia e Bernina: tutti raggiungibili direttamente dalla baita. Le strade dei più grandi Giri d'Italia.</p>
+          </div>
+          <div class="exp-card reveal reveal-delay-2" id="exp-wellness">
+            <div class="exp-card__icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2c0 4-4 6-4 10a6 6 0 0012 0c0-4-4-6-4-10"/><path d="M12 2c0 4-2 6-2 10a2 2 0 004 0c0-4-2-6-2-10"/><path d="M2 22h20"/></svg></div>
+            <h3 class="exp-card__title">Wellness & Terme</h3>
+            <p class="exp-card__desc">Le rinomate Terme di Bormio, già apprezzate da Leonardo da Vinci. Relax e benessere tra le montagne della Valtellina.</p>
+          </div>
+          <div class="exp-card reveal reveal-delay-3" id="exp-food">
+            <div class="exp-card__icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></div>
+            <h3 class="exp-card__title">Gastronomia</h3>
+            <p class="exp-card__desc">Pizzoccheri, sciatt, bresaola e formaggi d'alpeggio. Assapora i sapori autentici della tradizione valtellinese.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         GALLERY
+         ═══════════════════════════════════════════ -->
+    <section class="gallery section-padding" id="gallery">
+      <div class="container">
+        <div class="gallery__header reveal">
+          <span class="section-label">Galleria</span>
+          <h2 class="section-title">Scorci del tuo<br>prossimo soggiorno.</h2>
+        </div>
+        <div class="gallery__grid reveal">
+          <div class="gallery__item gallery__item--wide" data-gallery="0">
+            <img src="images/interior.png" alt="Interno accogliente della baita con camino" loading="lazy">
+          </div>
+          <div class="gallery__item" data-gallery="1">
+            <img src="images/room-suite.png" alt="Camera matrimoniale con vista montagna" loading="lazy">
+          </div>
+          <div class="gallery__item" data-gallery="2">
+            <img src="images/room-alpine.png" alt="Camera con letti singoli alpina" loading="lazy">
+          </div>
+          <div class="gallery__item" data-gallery="3">
+            <img src="images/valley.png" alt="Panorama della Valtellina con borgo alpino" loading="lazy">
+          </div>
+          <div class="gallery__item" data-gallery="4">
+            <img src="images/ski.png" alt="Sciatore sulle piste di Bormio" loading="lazy">
+          </div>
+          <div class="gallery__item gallery__item--wide" data-gallery="5">
+            <img src="images/hero.jpg" alt="Vista panoramica della baita tra le montagne" loading="lazy">
+          </div>
+        </div>
+        <div class="gallery__cta reveal">
+          <a href="#booking" class="btn-outline">
+            Vedi tutte le foto
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         REVIEWS / SOCIAL PROOF
+         ═══════════════════════════════════════════ -->
+    <section class="reviews section-padding" id="reviews">
+      <div class="container">
+        <div class="reviews__header reveal">
+          <span class="section-label">Social Proof</span>
+          <div class="reviews__rating">
+            <span class="reviews__score">4.9</span>
+            <div>
+              <div class="reviews__stars">★★★★★</div>
+              <span class="reviews__count">Eccellente — basato su 150 recensioni</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews__grid">
+          <div class="review-card reveal reveal-delay-1" id="review-1">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">"Un'esperienza indimenticabile! La baita è splendida, curata in ogni dettaglio. Torneremo sicuramente."</p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">MR</div>
+              <div>
+                <div class="review-card__name">Marco R.</div>
+                <div class="review-card__date">5 notti · Gennaio 2025</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card reveal reveal-delay-2" id="review-2">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">"Perfetta per la famiglia. Le bimbe e il nostro cane si sono divertiti tantissimo. Servizio impeccabile. Consigliatissima."</p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">EG</div>
+              <div>
+                <div class="review-card__name">Elena G.</div>
+                <div class="review-card__date">5 notti · Febbraio 2025</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card reveal reveal-delay-3" id="review-3">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">"Il mix perfetto di lusso e tradizione. Servizio impeccabile. Posizione strategica per sci e ciclismo."</p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">LF</div>
+              <div>
+                <div class="review-card__name">Luca F.</div>
+                <div class="review-card__date">3 notti · Marzo 2025</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         CTA BANNER
+         ═══════════════════════════════════════════ -->
+    <section class="cta-banner" id="cta-banner">
+      <div class="cta-banner__bg">
+        <img src="images/valley.png" alt="Vista panoramica della Valtellina" loading="lazy">
+      </div>
+      <div class="cta-banner__overlay"></div>
+      <div class="container">
+        <div class="cta-banner__content reveal">
+          <h2 class="cta-banner__title">La montagna ti aspetta.</h2>
+          <p class="cta-banner__subtitle">Prenota il tuo soggiorno e vivi un'esperienza alpina indimenticabile nella Valtellina.</p>
+          <a href="https://bookonline.pro/it/property/398832" class="btn-primary" target="_blank" rel="noopener" id="cta-book">
+            Prenota il tuo Soggiorno
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Brand -->
+        <div>
+          <div class="footer__brand-name">Baita Valtellina</div>
+          <p class="footer__brand-desc">La tua casa vacanze nel cuore delle Alpi italiane. Comfort, tradizione e avventura in Valtellina, a un passo da Bormio, Livigno e il Trenino Rosso del Bernina.</p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Facebook" id="social-fb">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Instagram" id="social-ig">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="WhatsApp" id="social-wa">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <div class="footer__heading">Link Rapidi</div>
+          <a href="#about" class="footer__link">La Baita</a>
+          <a href="#rooms" class="footer__link">Spazi</a>
+          <a href="#experiences" class="footer__link">Esperienze</a>
+          <a href="#gallery" class="footer__link">Galleria</a>
+          <a href="#reviews" class="footer__link">Recensioni</a>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <div class="footer__heading">Informazioni</div>
+          <a href="https://baitavaltellina.it/chi-siamo" class="footer__link">Chi Siamo</a>
+          <a href="https://baitavaltellina.it/termini-e-condizioni" class="footer__link">Termini e Condizioni</a>
+          <a href="https://baitavaltellina.it/privacy" class="footer__link">Privacy Policy</a>
+          <a href="https://baitavaltellina.it/il-mio-conto" class="footer__link">Il Mio Conto</a>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <div class="footer__heading">Contatti</div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <span>Tel: +39 349 1234567</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>Email: info@baitavaltellina.it</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Grosio (SO), Lombardia 23033, Italia</span>
+          </div>
+          <div class="footer__badges">
+            <span class="footer__badge">⭐ 9.5 Booking.com</span>
+            <span class="footer__badge">✓ Superhost</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span class="footer__copy">© 2025 Baita Valtellina. Tutti i diritti riservati.</span>
+        <div class="footer__bottom-links">
+          <a href="https://baitavaltellina.it/privacy" class="footer__bottom-link">Privacy</a>
+          <a href="https://baitavaltellina.it/termini-e-condizioni" class="footer__bottom-link">Termini</a>
+          <a href="#" class="footer__bottom-link">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       LIGHTBOX MODAL
+       ═══════════════════════════════════════════ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizzatore immagini">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Chiudi">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Immagine precedente">‹</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="Immagine galleria">
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Immagine successiva">›</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
